@@ -1,0 +1,94 @@
+<div class="body">
+
+  <!--Header-->
+  <app-header></app-header>
+  
+  <!-- Spinner -->
+  <ngx-spinner bdColor="rgba(0,0,0,0.8)" size="large" color="#00a7f8" type="ball-spin-clockwise"></ngx-spinner>
+  
+  <!-- Main content -->
+  <main>
+
+    <div class="container">
+
+      <!-- Title -->
+      <div class="row">
+        <div class="col s12">
+          <h3 class="header">Perfil da turma</h3>
+          <p class="caption">Informações sobre a turma</p>
+        </div>
+      </div>
+
+
+      <!-- Comparative -->
+      <div class="divider"></div>
+      <div class="row">
+        <div class="col s12">
+          <h3 class="header">Comparação dos resultados de avaliação</h3>
+          <h5 *ngIf="answers.length<=0">Sem avaliações para calcular os resultados comparativos</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <div class="row">
+            <div class="input-field col s12 m6">
+              <select #project (change)="chartDataUpdated('selectedProjectId', project.value)">
+                <option value="" selected>Todos</option>
+                <option *ngFor="let project of projects" [value]="project._id">
+                  {{ project.name }}
+                </option>
+              </select>
+              <label>Projeto</label>
+            </div>
+            <div class="input-field col s12 m6">
+              <select #team (change)="chartDataUpdated('selectedTeamId', team.value)">
+                <option value="" selected>Todas</option>
+                <option *ngFor="let team of teams" [value]="team._id">
+                  {{ team.name }}
+                </option>
+              </select>
+              <label>Equipe</label>
+            </div>
+            <br>
+            <div class="input-field col s12 m6">
+              <select #app (change)="chartDataUpdated('selectedApplicationId', app.value)">
+                <option value="" selected>Todas</option>
+                <option *ngFor="let app of applications" [value]="app.name">
+                  {{ app.name }}
+                </option>
+              </select>
+              <label>Aplicação</label>
+            </div> 
+            <div class="input-field col s12 m6">
+              <select #member (change)="chartDataUpdated('selectedMember', member.value)">
+                <option value="" selected>Todos</option>
+                <option *ngFor="let member of members" [value]="member.email">
+                  {{ member.name }}
+                </option>
+              </select>
+              <label>Membros</label>
+            </div> 
+          </div>
+          <div class="row">
+            <div class="col s12">
+              <div class="card-panel white" style="height: 500px;">
+                <div id="results"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="tableData !== undefined">
+        <table-pagination [dataSource]="tableData"></table-pagination>
+      </div>
+    </div>
+
+
+  </main>
+  
+  <!-- Footer -->
+  <app-footer></app-footer>
+  
+</div>
+  
+  

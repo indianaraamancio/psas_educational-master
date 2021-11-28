@@ -1,0 +1,7 @@
+{
+    "git.ignoreLimitWarning": true,
+    "githubPullRequests.remotes": [
+        "upstream",
+        "https://github.com/indianaraamancio/psas_educational.git"
+    ]
+}

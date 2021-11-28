@@ -1,0 +1,90 @@
+<div class="body">
+
+  <!--Header-->
+  <app-header></app-header>
+
+  <!-- Spinner -->
+  <ngx-spinner bdColor="rgba(0,0,0,0.8)" size="large" color="#00a7f8" type="ball-spin-clockwise"></ngx-spinner>
+
+  <!-- Main content -->
+  <main>
+    <div class="container">
+      
+      <!-- Title -->
+      <div class="row">
+        <div class="col s12">
+          <h3 class="header"><a [routerLink]="['/assessment']">Avaliações</a> > {{ assessment.name }} > escala </h3>
+        </div>
+      </div>
+
+      <!-- Questions -->
+      <div class="row">
+        <div class="col s12">
+            <h5>Escala da avaliação</h5>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <ul class="collapsible" *ngIf="alternatives.length>0">
+              <li *ngFor="let item of alternatives; let i = index" (click)="collapsible()">
+                <div class="collapsible-header">Nível {{ i+1 }}</div>
+                <div class="collapsible-body">
+                  <!-- <div class="row"> -->
+                    <!-- <div class="input-field col s12 m6"> -->
+                      <!-- <i class="material-icons prefix">edit</i> -->
+                      <!-- <label for="{{ 'itemPercentage' + i }}" class="active">Valoração</label> -->
+                      <!-- <input id="{{ 'itemPercentage' + i }}" type="text" class="validate" value="{{ item.percentage }}" (input)="changeQuestionItemPercentage(i,j)"> -->
+                    <!-- </div> -->
+                  <!-- </div> -->
+                  <div class="row">
+                    <div class="input-field col s12 m12">
+                      <i class="material-icons prefix">edit</i>
+                      <label for="{{ 'itemDescription' + i }}" class="active">Descrição</label>
+                      <input id="{{ 'itemDescription' + i }}" type="text" class="validate" value="{{ item.description }}" (input)="changeDescription(i)">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col s12">
+                      <a class="waves-effect waves-light light-blue btn-small" (click)="deleteAlternative(i)"><i class="material-icons left">delete</i>Excluir item da escala</a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div> 
+        </div>
+
+                  
+                    
+          <!-- Buttons to add alternative or edit scale -->
+          <div class="row">
+            <div class="col s12">
+              <a style="margin: 8px;" class="waves-effect waves-light light-blue btn-small" (click)="addAlternative()"><i class="material-icons left">add</i>Adicionar item na escala</a>
+            </div>
+          </div>
+                
+        <!-- </div> -->
+      <!-- </div> -->
+<!--Modal da escala :::::::::::::::::::::::::::::::::::::::-->
+      <!-- <div id="newScale" class="modal modal-fixed-footer newScale"> -->
+        <!-- <div class="modal-content"> -->
+          <!-- <h4>Escala</h4>      -->
+          <!-- <p> Informe os níveis e as respectivas descrições</p>    -->
+         
+      </div>
+
+      <!-- Buttons -->
+      <div class="row">
+        <div class="col s12">
+          <a style="margin-top: 4px; margin-bottom: 4px; margin-right: 4px;" class="waves-effect waves-light light-blue btn-large" [routerLink]="['/assessment', assessment._id]"><i class="material-icons left">arrow_back</i>Voltar</a>
+          <a class="waves-effect waves-light light-blue btn-large right" [routerLink]="['/assessment']" (click)="save()"><i class="material-icons left">save</i>Salvar</a>
+        </div>
+      </div>
+
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <app-footer></app-footer>
+
+</div>

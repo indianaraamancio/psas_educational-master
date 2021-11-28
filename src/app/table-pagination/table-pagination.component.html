@@ -1,0 +1,56 @@
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+  
+      <ng-container matColumnDef="projeto">
+        <th mat-header-cell *matHeaderCellDef>
+          Projeto
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.projectName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="time">
+        <th mat-header-cell *matHeaderCellDef>
+          Time
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.teamName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="aplicacao">
+        <th mat-header-cell *matHeaderCellDef>
+          Aplicação
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.applicationName}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="criterio">
+        <th mat-header-cell *matHeaderCellDef>
+          Critério
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.criteria}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="autoavaliacao">
+        <th mat-header-cell *matHeaderCellDef>
+          Autoavaliação
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.student}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="professor">
+        <th mat-header-cell *matHeaderCellDef>
+          Professor
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.teacher}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator 
+      [pageSizeOptions]="[5, 10, 25,50]"
+      [pageSize]="5"
+      showFirstLastButtons 
+      aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>

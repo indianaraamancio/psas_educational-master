@@ -1,0 +1,91 @@
+<div class="body">
+
+  <!--Header-->
+  <app-header></app-header>
+
+  <!-- Spinner -->
+  <ngx-spinner bdColor="rgba(0,0,0,0.8)" size="large" color="#00a7f8" type="ball-spin-clockwise"></ngx-spinner>
+
+  <!-- Main content -->
+  <main>
+    <div class="container">
+      
+      <!-- Title -->
+      <div class="row">
+        <div class="col s12">
+          <h3 class="header"><a [routerLink]="['/assessment']">Avaliações</a> > {{ assessment.name }}</h3>
+        </div>
+      </div>
+
+      <!-- Questions -->
+      <div class="row">
+        <div class="col s12">
+            <h5>Questões da avaliação</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <ul class="collapsible" *ngIf="assessment.questions.length>0">
+            <li *ngFor="let question of assessment.questions; let i = index" (click)="collapsible()">
+              <div class="collapsible-header">{{ i+1 }} - {{ question.name | slice:0:100 }}{{ question.name.length > 80 ? '...' : ''}}</div>
+              <div class="collapsible-body">
+                <span>
+                  <form class="col s12">
+                    <div class="row">
+                      <div class="input-field col s12 m12">
+                        <i class="material-icons prefix">edit</i>
+                        <label for="{{ 'questionName' + i }}" class="active">Questão/Critério/Afirmativa</label>
+                        <input id="{{ 'questionName' + i }}" type="text" class="validate" value="{{ question.name }}" (input)="changeQuestionName(i)">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">grain</i>
+                        <label class="active" for="{{ 'competenceName' + i }}">Competência</label>
+                        <select name="{{ 'competenceName' + i }}" id="{{ 'competenceName' + i }}" class="validate" (change)="changeQuestionCompetence(i)">
+                          <option *ngFor="let competence of organization.competences" [value]="competence.name" [selected]="competence.name===question.competenceName">
+                            {{ competence.name }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </form>
+                    
+                  <!-- Buttons to add alternative or edit question -->
+                  <div class="row">
+                    <div class="col s12">
+                      <a class="waves-effect waves-light light-blue btn-small" (click)="deleteQuestion(i)"><i class="material-icons left">delete</i>Excluir questão</a>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </li>
+          </ul>
+          <div class="row">
+            <!-- Inserido o botão para definir a escala-->
+            <div class="col s12">
+              <a class="waves-effect waves-light light-blue btn-small" (click)="addQuestion()"><i class="material-icons left">add</i>Adicionar questão</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="row">
+        <div class="col s12">
+          <a style="margin-top: 4px; margin-bottom: 4px; margin-right: 4px;" class="waves-effect waves-light light-blue btn-large" [routerLink]="['/assessment']"><i class="material-icons left">arrow_back</i>Voltar</a>
+
+          <a *ngIf="assessment.questions.length>0" class="waves-effect waves-light light-blue btn-large right" (click)="save()"><i class="material-icons right">arrow_forward</i>Continuar</a>
+          <a *ngIf="assessment.questions.length===0" class="waves-effect waves-light light-blue btn-large right" disabled (click)="save()"><i class="material-icons right">arrow_forward</i>Continuar</a>
+          
+        </div>
+      </div>
+
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <app-footer></app-footer>
+
+</div>
