@@ -384,7 +384,7 @@ export class DashboardComponent implements OnInit {
           height: '450px',
       },
       title: {
-          text: null,
+          text: 'Autoavaliação x Avaliação do Professor',
           x: -80
       },
       pane: {
