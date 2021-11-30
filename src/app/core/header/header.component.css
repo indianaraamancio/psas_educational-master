@@ -22,3 +22,7 @@ li.logo:hover {
 li.logo a:hover {
     background-color: transparent !important;
 }
+
+#organizationName{
+    font-size: 20px;
+}
