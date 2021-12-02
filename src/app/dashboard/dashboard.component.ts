@@ -38,6 +38,7 @@ export class DashboardComponent implements OnInit {
 
   organizationId = '';
   i=0;
+  coefficientValue=0;
   organizationName = '';
   userProfile = '';
   userEmail = '';
@@ -344,6 +345,13 @@ export class DashboardComponent implements OnInit {
     return answers
   }
 
+  calculateCoefficient(){
+    
+
+
+
+  }
+
   chartDataUpdated(
     field: 'selectedTeamId' | 'selectedApplicationId' | 'selectedProjectId' | 'selectedMember',
     value: string
@@ -355,11 +363,13 @@ export class DashboardComponent implements OnInit {
     if(field==='selectedApplicationId'){
       this.insertHighestValue();
     }
-    
-      this.prepareIndexData();
-    
+    if(field==='selectedMember'){
+      this.calculateCoefficient();       
+    }    
+      this.prepareIndexData(); 
 
   }
+  
 
   findTeamName(teamId: string) {
     const app = this.applications.find(application => application.team._id === teamId)
