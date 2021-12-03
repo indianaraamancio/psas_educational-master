@@ -193,5 +193,4 @@ export class AnswerComponent implements OnInit {
       this.router.navigate(['home']);
     });
   }
-
 }

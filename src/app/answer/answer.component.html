@@ -77,7 +77,7 @@
                     <!-- Alternatives -->
                     <div class="row" *ngIf="question.items.length>0">
                       <div class="col s12 m6 l4 xl3" *ngFor="let item of question.items; let j = index" style="padding: 0;">
-                        <div class="card" style="cursor: pointer;" id="{{ i + '' + j}}" (click)="selectItem(i,j)">
+                        <div class="answerCard" id="{{ i + '' + j}}" (click)="selectItem(i,j)">
                           <div class="card-content">
                             <p>{{ item.description }}</p>
                           </div>
@@ -100,7 +100,6 @@
                 </div>
               </form>
             </div>
-
           </div>
 
           <!-- Buttons -->
