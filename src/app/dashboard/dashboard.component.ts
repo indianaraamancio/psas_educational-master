@@ -346,10 +346,23 @@ export class DashboardComponent implements OnInit {
   }
 
   calculateCoefficient(){
-    
-
-
-
+    this.coefficientValue=0;
+    var totalQuestions = this.selfGrades.length;
+    var total = 0;
+  
+    for(let i=0; i<totalQuestions;i++){
+      let diff=0;
+      diff=this.selfGrades[i]-this.teacherGrades[i];
+      console.log(this.selfGrades[i]+"  -  "+this.teacherGrades[i]);
+      if(diff<0){
+        diff = diff * (-1);
+      }
+      console.log("Diferença: "+diff+ " Valor da escala "+this.highestValueScale);
+      total = 1 * ((this.highestValueScale-diff)-1) + total;
+    }
+    total = (total / ((this.highestValueScale-1) * totalQuestions)) * 100 ;
+    console.log(total);
+    this.coefficientValue = total;   
   }
 
   chartDataUpdated(
@@ -363,10 +376,11 @@ export class DashboardComponent implements OnInit {
     if(field==='selectedApplicationId'){
       this.insertHighestValue();
     }
-    if(field==='selectedMember'){
-      this.calculateCoefficient();       
-    }    
       this.prepareIndexData(); 
+
+      if(field==='selectedMember'){
+        this.calculateCoefficient();       
+      }
 
   }
   

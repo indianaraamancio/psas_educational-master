@@ -1,5 +1,9 @@
 #coefficient{
     width:50px;
     color:red;
-    text-align: right;
+    text-align: center;
+}
+
+#coefficientPercentage{
+    font-weight: bold;
 }
