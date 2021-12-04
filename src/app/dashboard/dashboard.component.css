@@ -7,3 +7,15 @@
 #coefficientPercentage{
     font-weight: bold;
 }
+
+#commentStudent, #commentTeacher{
+   margin: 10px;
+   color: black;
+   font-style: italic;
+   height:150px;
+   resize: none;
+}
+
+.labelComments{
+margin-left:20px;
+}

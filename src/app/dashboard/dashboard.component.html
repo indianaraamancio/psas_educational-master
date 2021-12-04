@@ -66,7 +66,7 @@
                   {{ member.name }}
                 </option>
               </select>
-              <label>Membros</label>
+              <label>Estudante</label>
             </div> 
           </div>
 
@@ -86,12 +86,34 @@
       </div>
 
       
-
+      <!-- ::::::::::::::::: TABELA COM OS VALORES DAS APLICAÇÕES
       <div *ngIf="tableData !== undefined">
         <table-pagination [dataSource]="tableData"></table-pagination>
       </div>
+       -->
     </div>
-
+   
+    <div class="row">
+      <label for="commentTeacher" class="labelComments">Comentários do professor</label>     
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="commentTeacher" rows="5" disabled  [value]="this.teacherComment"></textarea>          
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="row">    
+      <label for="commentStudent" class="labelComments">Comentários do estudante</label> 
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="commentStudent" rows="5" disabled  [value]="this.studentComment"></textarea>           
+           </div>
+        </div>
+      </form>
+    </div>
+ 
 
   </main>
   

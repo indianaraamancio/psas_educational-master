@@ -38,6 +38,8 @@ export class DashboardComponent implements OnInit {
 
   organizationId = '';
   i=0;
+  teacherComment = "";
+  studentComment = "";
   coefficientValue=0;
   organizationName = '';
   userProfile = '';
@@ -508,7 +510,9 @@ export class DashboardComponent implements OnInit {
   */
 
   prepareIndexData() {
-    console.log("Entrei na prepareIndexData");
+    this.teacherComment="";
+    this.studentComment="";
+    
     if(this.selectedApplicationId && this.selectedMember && this.selectedProjectId && this.selectedTeamId){
       const appByTeam = this.applications.filter(application => application.team._id === this.selectedTeamId)
       const appByApplication = this.selectedApplicationId ? appByTeam.filter(application => application.name === this.selectedApplicationId) : appByTeam
@@ -522,9 +526,13 @@ export class DashboardComponent implements OnInit {
           if (isStudent){
             const isTeacher = answer.userEvaluator !== answer.userRated
             if(isTeacher) {
-              this.teacherGrades.push(answer.answer)
+              this.teacherGrades.push(answer.answer);
+              this.teacherComment = answer.comments;
+              console.log("Comentário do professor :"+answer.comments + " .");
             } else {
-              this.selfGrades.push(answer.answer)
+              this.selfGrades.push(answer.answer);
+              this.studentComment = answer.comments;
+              console.log("Comentário do aluno :"+answer.comments + " .");
             }
           }
 
