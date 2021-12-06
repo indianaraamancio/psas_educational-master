@@ -153,7 +153,7 @@ export class AssessmentScalesComponent implements OnInit {
     this.alternatives.splice(item, 1);
   }
 
-  addAlternative(question: number) {
+  addAlternative() {
     const newAlternative = {
       order: 0,
       description: '',
