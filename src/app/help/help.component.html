@@ -8,9 +8,102 @@
     <div class="container">
       <div class="row">
         <div class="col s12">
-          <h3 class="header">Ajuda</h3>
-          <p class="caption">Esta é a página de ajuda.</p>
+          <h3 class="header">Sobre o PSAS Educational</h3>
+          <p class="caption">Olá <b>professor</b>! Seja bem vindo ao PSAS Educational! Um <em> framework</em> de autoavaliação de competências que oferece suporte a aplicação da autoavaliação com seus estudantes de forma integrada a sua avaliação, por meio da criação de rubricas.
+            Com o PSAS Educational você também pode visualizar o gráfico comparativo das pontuações da sua avaliação <em>versus</em> a autoavaliação do estudante e saber a porcentagem de acurácia da autoavaliação do estudante por meio do <b>coeficiente de concordância</b>.
+          </p>
         </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <h4 class="header">Como é medido o coeficiente de concordância?</h4>
+          <p class="caption">Antes de explicar como o coeficiente é calculado, é importante reforçar 
+            que acurácia de uma autoavaliação, segundo os autores de referência do tema, se pauta no quão próxima ela é da avaliação do professor e dos pares. Essa premissa se dá por conta do professor saber o 
+            que é um bom trabalho dentro da avaliação que está propondo. No entanto, para que essa acurácia 
+            seja possível, algumas práticas devem acontecer. Sugere-se então que você professor, antes de utilizar
+             o PSAS Educational, faça esses passos com sua turma: </p>
+             <ul>
+                <li> - Converse com os estudantes sobre a importância e os ganhos da autoavaliação discente;</li>
+                <li> - Discuta a rubrica e a escala que pretende utilizar ao criar a avaliação no PSAS, dessa forma, os estudantes conhecerão a avaliação e saberão como se auto avaliar previamente; </li>
+                <li> - Mantenha a prática da autoavaliação, pois é uma ferramenta poderosa no processo de ensino-aprendizagem, instigando a autorreflexão e autorregulação do aprendizado, além de ser uma prática muito requerida no mercado de trabalho.</li>
+            </ul>
+            <h5 class="header">Fórmula do coeficiente</h5>
+            <p class="caption">Ao criar uma rubrica de avaliação, você professor irá estabelecer uma escala para as questões, que pode ser de 5 pontos, por exemplo: </p>
+            <p> <em>1- Discordo totalmente, 2- Discordo, 3- Não sei como opinar, 4- Concordo e 5- Concordo totalmente</em></p>
+            <p class="caption">Sendo assim, a maior diferença de pontuação possível é de 4 pontos, quanto o professor avalia o estudante em uma determinada questão com 5 e o estudante se auto avalia com 1 na mesma questão, por exemplo. Para cada diferença de pontuação, é atribuída uma <b>relevância</b> diferente, para que quanto mais próximas as pontuações sejam, mais significância tenham na concordância final.<br> 
+              Tomando ainda o exemplo de uma rubrica de 5 pontos, as relevâncias seriam:
+             </p>
+             <table class="centered">
+               <thead>
+               <tr>
+                <th>Diferença de pontuação</th>
+                <th>Cálculo da relevância</th>
+                <th>Relevância final</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0 (mesma pontuação)</td>
+                <td> 5 - (diferença de pontuação) - 1</td>
+                <td> 4</td>           
+              </tr>
+              <tr>
+                <td>1 ponto</td>
+                <td> 5 - (diferença de pontuação) - 1</td>
+                <td> 3</td>           
+              </tr>
+              <tr>
+                <td>2 pontos</td>
+                <td> 5 - (diferença de pontuação) - 1</td>
+                <td> 2</td>           
+              </tr>
+              <tr>
+                <td>3 pontos</td>
+                <td> 5 - (diferença de pontuação) - 1</td>
+                <td> 1</td>           
+              </tr>
+              <tr>
+                <td>4 pontos</td>
+                <td> 5 - (diferença de pontuação) - 1</td>
+                <td> 0</td>           
+              </tr>
+            </tbody>
+             </table>
+          <p class="caption">Cada questão da avaliação será multiplicada pela relevância, de acordo com a diferença de pontuação dada pelo professor e estudante após responderem respectivamente a avaliação e autaovaliação. 
+            A soma das diferenças de pontuação multiplicadas por sua respectiva relevância correspondem ao valor "A" da fórmula do coeficiente de concordância, que é:
+          </p>
+          <p id="formula">A &divide; (B * C)</p>
+          <p class="caption">Sendo: <br>B= quantidade de questões da avaliação;<br>
+          C= maior relevância</p>
+          <p class="caption">O valor é final multiplicado por 100, para que seja representado como porcentagem.
+            O coeficiente de concordância é uma medida que pode auxiliar você professor a discutir com seu estudante os resultados de sua avaliação e da autoavaliação realizada por ele, a fim de que se possa trabalhar a acurácia da autoavaliação continuamente, buscando evolução e eficácia na prática dessa estratégia de avaliação. 
+          </p>
+          <h4 class="header">Como utilizar o PSAS Educational?</h4>
+          <p class="caption">O fluxograma a seguir apresenta os passos para a utilização do <em>framework</em>, desde a criação da turma até a visualização de dados por estudante:</p>
+          <figure>
+            <img src="../../assets/fluxoPSAS.png" alt="Fluxo de uso do PSAS">
+            <figcaption style="font-size:10px;">Fluxo de utilização do PSAS Educational</figcaption>
+          </figure>
+          <p class="caption"><b>Sobre os passos:</b></p>
+          <ul>
+            <li>  <b><em>Criar uma turma:</em></b> Ao efetuar <em>login</em> no PSAS Educational com uma conta Google, o professor visualizará as turmas da qual faz parte (como professor ou estudante). Nessa tela, terá acesso ao botão "Nova turma" onde poderá cadastrar uma nova turma. A turma pode ser entendida como a disciplina trabalhada em uma turma especificamente, pois para cada disciplina são trabalhadas diferentes competências. </li>
+            <li>  <b><em>Cadastrar as competências:</em></b> O professor deverá cadastrar as competências a serem trabalhadas e avaliadas na turma em questão, informando: nome, tipo (conhecimento, habilidade ou atitude) e sua descrição. </li>
+            <li>  <b><em>Cadastrar os estudantes:</em></b> O professor deverá cadastrar todos os estudantes da turma, informando: nome, e-mail (que utilizará para acesso ao PSAS) e perfil. O e-mail a ser informado deverá ser uma conta Google, pois no momento é a única opção de <em>login</em> disponível. No perfil existe somente a opção estudante no momento. No entanto, em novas implementações do PSAS Educational, o professor poderá cadastrar outros professores, supervisores ou coordenadores.</li>
+            <li>  <b><em>Cadastrar um projeto:</em></b> O professor deverá cadastrar um projeto que pode ser entendido como um conhecimento a ser trabalhado ou mesmo um projeto efetivamente. A equipe é vinculada ao projeto, portanto, o projeto deve ser cadastrado previamente.</li>
+            <li>  <b><em>Cadastrar uma equipe:</em></b> O professor deverá cadastrar uma equipe informando seu nome e a qual projeto pertence. Após esse cadastro, deverá adicionar os estudantes na equipe, podendo adicionar um de cada vez ou todos de uma única vez, clicando no botão "Adicionar todos os alunos". </li>
+            <li>  <b><em><u>Criar a avaliação:</u></em></b> O professor deverá criar a avaliação informando seu nome e a ferramenta. No momento, somente a ferramenta do tipo rubrica está disponível. </li>
+            <li>  <b><em>Registrar as questões e escala da avaliação:</em></b> O professor deverá registrar as questões da avaliação informando a descrição e a competência da qual a questão se refere. Como trata-se de uma rubrica de avaliação, as questões devem ser formuladas em formato de afirmativas. Após o registro das questões a escala da avaliação deve ser definida. A escala é do tipo Likert, sendo o valor do primeiro nível 1, do segundo 2 e assim por diante. Cada um dos níveis deve ser descrito pelo professor.  </li>
+            <li>  <b><em>Aplicar a avaliação para a equipe:</em></b> O professor deverá aplicar (distribuir) a avaliação para uma equipe, informando: nome da aplicação, para qual equipe, qual avaliação e a estratégia. No momento, somente a estratégia de autoavaliação e avaliação do professor está disponível. Sendo assim, ao aplicar a avaliação, o professor responderá sua avaliação para cada estudante daquela equipe e cada estudante responderá sua autoavaliação. </li>
+            <li>  <b><em><u>Responder a avaliação:</u></em></b> O professor e os estudantes deverão responder a avaliação. O professor responderá a avaliação de cada um dos estudantes da equipe e cada estudante deverá responder sua autoavaliação.   </li> 
+            <li>  <b><em><u>Visualizar o gráfico e coeficiente de concordância:</u></em></b> O professor poderá visualizar o gráfico radar que compara as pontuações de sua avaliação com a autoavaliação do estudante, bem como visualizar o coeficiente de concordância e os comentários. O estudante poderá visualizar o gráfico radar comparativo entre sua avaliação e a média das avaliações de sua turma.  </li> 
+         
+          </ul>
+
+
+        
+        </div>
+        
       </div>
     </div>
   </main>
